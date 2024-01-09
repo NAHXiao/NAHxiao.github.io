@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nahxiao.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="linux 基础命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux命令 -- 随缘更新">
+<meta property="og:url" content="http://nahxiao.github.io/project/1970/01/01/Linux%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="NAHxiao&#39;s Blog">
+<meta property="og:description" content="linux 基础命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="1970-01-01T00:00:00.000Z">
+<meta property="article:modified_time" content="2023-12-25T04:20:32.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://nahxiao.github.io/project/1970/01/01/Linux%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Linux命令 -- 随缘更新 | NAHxiao's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">NAHxiao's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://nahxiao.github.io/project/1970/01/01/Linux%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NAHxiao's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux命令 -- 随缘更新
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：1970-01-01 08:00:00" itemprop="dateCreated datePublished" datetime="1970-01-01T08:00:00+08:00">1970-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-25 12:20:32" itemprop="dateModified" datetime="2023-12-25T12:20:32+08:00">2023-12-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="linux-基础命令-1"><a href="#linux-基础命令-1" class="headerlink" title="linux 基础命令# 1"></a>linux 基础命令<br><span id="more"></span><br># 1</h2><ol>
+<li>mount [-anLto] 不加参数 显示所有已挂载文件系统<br>   -a 按&#x2F;etc&#x2F;fstab挂载<br>   -n跳过写入&#x2F;etc&#x2F;mtab<br>   -L 使用Label 挂载<br>   -t 加文件系统类型<br>   -o 后加<options><br>   –bind 将一个目录挂载到另一个目录<br>   –mkdir 无目录创建目录</li>
+<li>umount  [-R]</li>
+<li>e2label 修改Label</li>
+<li>dd if&#x3D; of&#x3D; bs&#x3D; count&#x3D;<br>bs&#x3D;1024k  block大小1024k<br>count&#x3D;2048 block数量</li>
+<li>mkdir [-mvp]<br>  -m 直接设定权限 无视umask</li>
+<li>rmdir [-p]<br>-p 递归</li>
+<li>ls [-aAdfFhilnrRst]<br>-a显示隐藏<br>-A显示隐藏 . ..除外<br>-d<br>-f 不排序<br>-F 根据档案,目录等信息给予附加数据结构 * 可执行 &#x2F; 目录 &#x3D; socket | FIFO<br>-h 文件大小易读模式<br>-i inode<br>-l 长数据串输出,包含属性等<br>-n 列出UID GID而非user group<br>-r 反向<br>-R 连同子目录<br>-S 按大小排序<br>-t 按时间排序</li>
+<li>cp [-adfilprsu]<br>-a -pdr 递归link属性<br>-d link<br>-f force<br>-i 已存在时询问<br>-l 复制为ln 硬<br>-p 属性<br>-r 递归<br>-s 复制为ln -s 软<br>-u 目标旧才复制(update)<br>source [source…] dest</li>
+<li>rm [-irf]<br>   -i 交互</li>
+<li>mv [-fiu]<br>   -f force<br>   -i 交互<br>   -u update</li>
+</ol>
+<hr>
+<h1 id="查阅"><a href="#查阅" class="headerlink" title="查阅"></a>查阅</h1><ol>
+<li>cat [-AEnTv]<br>cat -An<br>-A &#x3D;-vET<br>-E 显示断行字符$<br>-n显示行号<br>-T 以^I 显示[TAB]<br>-v 显示一些看不出来的字符</li>
+<li>tac cat反着写</li>
+<li>nl [-bnw]<br>-b 指定是否显示空行的行号<br>-b a显示<br>-b t 不显示<br>-n显示行号的方法<br>-n ln 左<br>-n rn 右<br>-n rz 右 ,补零</li>
+<li>more </li>
+<li>less</li>
+<li>head [-n num] 取前几行</li>
+<li>tail [-n num]去后几行</li>
+<li>od [-t TYPE]<br>TYPE:<br>a 预设<br>c ASCII<br>d[size] decimal 每个占size<br>f[size] floating<br>o[size] octal<br>x[size] hex</li>
+<li>touch [-acdmt]<br>-a 修改atime<br>-m 修改mtime<br>-c 仅修改而不建立<br>-d 接日期<br>-t 接时间</li>
+<li>chown chmod chgrp </li>
+<li>umask [-S]</li>
+<li>chattr [+-&#x3D;] [ASacdistu]<br>A固定atime<br>S sync<br>a 只能增加不能减少<br>c 压缩<br>d 不可dump<br>i 固定<br>j 写入时记录进journal<br>s 将被完全从硬盘移除<br>u与s相反</li>
+<li>lsattr  [-aR]</li>
+<li>file 检阅档案类型 Bin ASCII data</li>
+<li>which [-a] commoand 寻找命令</li>
+<li>whereis [-bmsu]<br>-b 二进制<br>-m manual<br>-s source<br>-u 没有man的</li>
+<li>find [PATH] [option] [action]<ol>
+<li>时间<br>-atime n<br>-ctime n<br>-mtime n<br>-newer file</li>
+<li>user&#x2F;group<br>-uid n<br>-gid n<br>-user name<br>-group name<br>-nouser 不在&#x2F;etc&#x2F;passwd<br>-nogroup 不再&#x2F;etc&#x2F;group</li>
+<li>权限<br>-name filename<br>-size [+-]SIZE [c|k] 大于小于<br>-type [fbcdlsp] f 正规 b,c 装置 d dir  l link s sockets p FIFO<br>-perm mode 属性 如4755<br>-perm +mode 包含<br>-perm -mode 不包含</li>
+<li>other<br>-exec commond 接命令来处理结果</li>
+</ol>
+</li>
+<li>read [-pt] variable<br>-p 接提示<br>-t time</li>
+<li>declare [-aixr] variable<br>-a array<br>-i integer<br>-x export<br>-r readonly</li>
+<li>ulimit [-SHacdflmnpstuv] [配额]<br>-H hard limit<br>-S soft limit<br>-a 列出<br>-c core files 如核心转储<br>-d data<br>-f 可建立的最大档案容量(每个)<br>-l 可用于lock的内存量<br>-p 可用以pipe的数量<br>-t 最大CPU时间(s)<br>-u 单一使用者可使用的最大程序数量</li>
+<li>alias与unalias</li>
+<li>history [ [-n],[-c],[-raw]<file> ]<br>-n number<br>-c clear<br>-read from<br>-a add to<br>-w write to</li>
+<li>!! 执行上一条命令</li>
+<li>!num 第几条</li>
+<li>!exe 上一条以exe开头的命令</li>
+<li>set [-uvCHhmBx]<br>-u off 为未设定的变量显示错误信息<br>-v off 在信息被输出前显示原始信息<br>-h<br>-H<br>-m<br>-B<br>-C off 使用&gt;且目标存在时不覆盖</li>
+<li>cut</li>
+<li>grep [-acinv]<br>-a 将bin以text档案形式搜寻<br>-c count计数<br>-i 忽略大小写<br>-n number<br>-v 反选</li>
+<li>sort [-fbMnrtuk] {file,stdin}<br>默认 按首字母排序<br>-f 忽略大小写<br>-b 忽略前面的空格<br>-M 以月份排序<br>-n以数字排序(预设文字态)<br>-r 反向<br>-u uniq 相同的数据仅出现一行<br>-t 分隔符 预设tab<br>-k 以那个区间(field)来排序?</li>
+<li>uniq 相同的数据仅出现一行<br>-i 忽略大小写<br>-c 计数</li>
+<li>wc [-lwm]<br>输出 行 字数 字符数<br>-l 仅列出行<br>-w 仅列出字数<br>-m字符</li>
+<li>tee [-a] <file><blockquote>
+<p>copyto<br>-a 累加</p>
+</blockquote>
+</li>
+<li>tr  [-ds]<br>tr “” “” 替换 如tr “[a-z]” “[A-Z]”<br>-d delete<br>-s substitute</li>
+<li>col [-x]<br>-x tab-&gt;    </li>
+<li>join [-ti12] file1 file2<br>默认以<Space>为分隔符,比对第一个字段<br>-t 设定分隔符<br>-1 num<br>-2 num</li>
+<li>paste [-d] file1 file2<br>-d 接分隔符 默认<tab><ul>
+<li>表示stdin</li>
+</ul>
+</li>
+<li>expand [-t] file<br><tab>-&gt;<Space><br>-t 几个<Space></li>
+<li>split [-bl] srcfile dstfile<br>-b 接 …b&#x2F;k&#x2F;m<br>-l 以行号<br>cat name* &gt;&gt; name还原</li>
+<li>xargs </li>
+<li>expr 运算符</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/1970/01/01/%E9%9B%B6%E6%95%A3%E7%9A%84%E8%AF%AD%E6%B3%95/" rel="prev" title="零散的语法Part1">
+      <i class="fa fa-chevron-left"></i> 零散的语法Part1
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/1970/01/01/%E5%9B%BE/" rel="next" title="图">
+      图 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux-%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4-1"><span class="nav-number">1.</span> <span class="nav-text">linux 基础命令# 1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E9%98%85"><span class="nav-number"></span> <span class="nav-text">查阅</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
